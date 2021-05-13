@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">Image Search App</string>
+    <string name="retry">Retry</string>
+    <string name="error_message">Result could not be loaded.</string>
+    <string name="text_view_empty">No result found for this query.</string>
+    <string name="error_footer">Results could not be loaded</string>
+    <string name="search">Search</string>
+    <string name="creator_beginning">Photo by </string>
+    <string name="creator_tail"> on Unsplash</string>
 </resources>

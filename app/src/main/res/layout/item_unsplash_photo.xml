@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tool="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/image_size">
+
+    <ImageView
+        android:id="@+id/imageView_item"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/gradiend_size"
+        android:background="@drawable/gradient"
+        app:layout_constraintBottom_toBottomOf="@id/imageView_item"
+        app:layout_constraintEnd_toEndOf="@id/imageView_item"
+        app:layout_constraintStart_toStartOf="@id/imageView_item" />
+
+    <TextView
+        android:id="@+id/textView_userName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/xs_space"
+        android:drawablePadding="@dimen/xxs_space"
+        android:ellipsize="end"
+        android:gravity="center_vertical"
+        android:maxLines="1"
+        android:textColor="#fff"
+        app:drawableStartCompat="@drawable/ic_user"
+        app:layout_constraintBottom_toBottomOf="@id/imageView_item"
+        app:layout_constraintStart_toStartOf="@id/imageView_item"
+        tool:text="username" />
+</androidx.constraintlayout.widget.ConstraintLayout>
