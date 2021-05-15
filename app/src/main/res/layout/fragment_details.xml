@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/colorPrimary"
     tools:context=".ui.details.DetailsFragment">
 
     <ScrollView
@@ -12,14 +13,13 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:padding="@dimen/xxs_space">
+            android:layout_gravity="center_vertical"
+            android:orientation="vertical">
 
             <ImageView
                 android:id="@+id/imageView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="@dimen/xxs_space"
                 android:adjustViewBounds="true"
                 tools:layout_height="300dp"
                 tools:scaleType="centerCrop"
@@ -29,8 +29,7 @@
                 android:id="@+id/textView_description"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/xs_space"
-                android:layout_marginEnd="@dimen/xs_space"
+                android:layout_margin="@dimen/xs_space"
                 android:visibility="gone"
                 tools:text="This is the description"
                 tools:visibility="visible" />
@@ -39,8 +38,7 @@
                 android:id="@+id/textView_creator"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/xs_space"
-                android:layout_marginEnd="@dimen/xs_space"
+                android:layout_margin="@dimen/xs_space"
                 android:textColor="@color/linkColor"
                 android:textStyle="bold"
                 android:visibility="gone"
