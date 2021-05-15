@@ -60,12 +60,12 @@ class DetailsFragment : Fragment(R.layout.fragment_details){
 
             val shareIntent: Intent = Intent().apply {
                 action = Intent.ACTION_SEND
-                putExtra(Intent.EXTRA_STREAM, photo.urls.regular)
-                type = "image/jpeg"
+                putExtra(Intent.EXTRA_TEXT, photo.urls.regular)
+                type = "text/plain"
             }
 
             imageView.setOnLongClickListener {
-                context?.startActivity(Intent.createChooser(shareIntent, getString(R.string.send_image)))
+                context?.startActivity(Intent.createChooser(shareIntent, null))
                 true
             }
 
