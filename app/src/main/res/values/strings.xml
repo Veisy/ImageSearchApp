@@ -7,4 +7,5 @@
     <string name="search">Search</string>
     <string name="creator_beginning">Photo by </string>
     <string name="creator_tail"> on Unsplash</string>
+    <string name="send_image">Send Image</string>
 </resources>
