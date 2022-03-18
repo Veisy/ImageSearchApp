@@ -1,6 +1,7 @@
 package com.codinginflow.imagesearchapp.ui.details
 
 import android.content.Intent
+import android.content.res.Configuration
 import android.graphics.drawable.Drawable
 import android.net.Uri
 import android.os.Bundle
@@ -14,10 +15,11 @@ import com.bumptech.glide.load.DataSource
 import com.bumptech.glide.load.engine.GlideException
 import com.bumptech.glide.request.RequestListener
 import com.bumptech.glide.request.target.Target
+import com.codinginflow.imagesearchapp.MainActivity
 import com.codinginflow.imagesearchapp.R
 import com.codinginflow.imagesearchapp.databinding.FragmentDetailsBinding
 
-class DetailsFragment : Fragment(R.layout.fragment_details){
+class DetailsFragment : Fragment(R.layout.fragment_details) {
 
     private val args by navArgs<DetailsFragmentArgs>()
 
@@ -26,11 +28,14 @@ class DetailsFragment : Fragment(R.layout.fragment_details){
 
         val binding = FragmentDetailsBinding.bind(view)
 
+        changeActionBarVisibility(false)
+
         binding.apply {
             val photo = args.photo
 
             Glide.with(this@DetailsFragment)
-                .load(photo.urls.regular)
+                .load(photo.urls.full)
+                .fitCenter()
                 .error(R.drawable.ic_error)
                 .listener(object : RequestListener<Drawable> {
                     override fun onLoadFailed(
@@ -78,7 +83,7 @@ class DetailsFragment : Fragment(R.layout.fragment_details){
             textViewCreator.apply {
                 val creatorBeginning = context.getString(R.string.creator_beginning)
                 val name = photo.user.name
-                val creatorTail =  context.getString(R.string.creator_tail)
+                val creatorTail = context.getString(R.string.creator_tail)
                 val creatorAndLink = creatorBeginning + name + creatorTail
                 text = creatorAndLink
                 setOnClickListener {
@@ -87,5 +92,22 @@ class DetailsFragment : Fragment(R.layout.fragment_details){
                 paint.isUnderlineText = true
             }
         }
+    }
+
+    private fun changeActionBarVisibility(visibile: Boolean) {
+        with(requireActivity()) {
+            if (resources.configuration.orientation == Configuration.ORIENTATION_LANDSCAPE) {
+                (this as MainActivity).supportActionBar?.apply {
+                    if (visibile) show()
+                    else hide()
+                }
+            }
+        }
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+
+        changeActionBarVisibility(true)
     }
 }
